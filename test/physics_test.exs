@@ -1,5 +1,5 @@
 defmodule PhysicsTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   import Calcs
   import Physics.Rocketry
   doctest Physics
@@ -30,6 +30,19 @@ defmodule PhysicsTest do
 
   test "term of orbit @ 100km" do
     assert 1.4 == orbital_term(100)
+  end
+
+  test "sane cube root?" do
+    assert 3.0 == cube_root(27)
+    assert 4.0 == 64 |> cube_root |> to_nearest_tenth
+  end
+
+  test "correct height for 4 hours" do
+    assert 6421.7 == correct_height(4) |> to_nearest_tenth
+  end
+
+  test "correct height for 1.4 hours" do
+    assert 100.0 == correct_height(1.4388858557666) |> to_nearest_tenth
   end
 
 end

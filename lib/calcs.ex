@@ -26,5 +26,13 @@ defmodule Calcs do
   def seconds_to_hours(val) do
     val / 3600 |> to_nearest_tenth
   end
+
+  def hours_to_seconds(val) do
+    val * 3600
+  end
+
+  def cube_root(val) do
+    :math.pow(val, 1/3)
+  end
 end
 
